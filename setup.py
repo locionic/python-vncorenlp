@@ -14,13 +14,13 @@ def readme(file_name):
 
 setup(name='vncorenlp',
       version='1.0.3',
-      description='A Python wrapper for VnCoreNLP using a bidirectional communication channel.',
+      description='A Python wrapper for VnCoreNLP using a bidirectional communication channel. (Bản đã chỉnh sửa)',
       long_description=readme(file_name='README.md'),
       keywords='python-vncorenlp vncorenlp nlp vietnamese-nlp parser word-segmentation tokenizer pos-tagger '
                'named-entity-recognition ner dependency-parser',
-      url='https://github.com/dnanhkhoa/python-vncorenlp',
-      author='Khoa Duong',
-      author_email='dnanhkhoa@live.com',
+      url='https://github.com/locionic/python-vncorenlp',
+      author='Hong Loc',
+      author_email='noone000a@gmail.com',
       license='MIT',
       packages=['vncorenlp'],
       include_package_data=True,
