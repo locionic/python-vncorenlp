@@ -22,12 +22,6 @@ class VnCoreNLP(object):
         # Add logger
         self.logger = logging.getLogger(__name__)
 
-        # Get a random port if port is not set
-        if port is None:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.bind(('', 0))
-                port = s.getsockname()[1]
-
         # Default URL
         self.url = 'http://127.0.0.1:' + str(port)
         self.timeout = timeout
@@ -37,7 +31,10 @@ class VnCoreNLP(object):
 
         if address.startswith('http'):
             o = urlparse(address)
-            self.url = '%s://%s:%d' % (o.scheme, o.netloc, port)
+            if port:
+                self.url = '%s://%s:%d' % (o.scheme, o.netloc, port)
+            else:
+                self.url = '%s://%s' % (o.scheme, o.netloc)
             self.logger.info('Using an existing server: %s' % self.url)
         else:
             # Check if VnCoreNLP file exists
